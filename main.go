@@ -227,7 +227,12 @@ func (app *App) createPingURL(w http.ResponseWriter, r *http.Request) {
 	respondWithJSON(w, http.StatusCreated, url)
 }
 
+func (app *App) health(w http.ResponseWriter, r *http.Request) {
+	respondWithJSON(w, http.StatusOK, map[string]string{"status": "success"})
+}
+
 func (app *App) initializeRoutes() {
+	app.Router.HandleFunc("/", app.health).Methods("GET")
 	app.Router.HandleFunc("/ping", app.getPingUrls).Methods("GET")
 	app.Router.HandleFunc("/ping", app.createPingURL).Methods("POST")
 }
