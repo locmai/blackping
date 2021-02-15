@@ -44,3 +44,14 @@ Selector labels
 {{- define "blackping.selectorLabels" -}}
 app: {{ include "blackping.name" . }}
 {{- end }}
+
+{{/*
+Create the name of the service account to use
+*/}}
+{{- define "blackping.serviceAccountName" -}}
+{{- if .Values.serviceAccount.create }}
+{{- default (include "blackping.fullname" .) .Values.serviceAccount.name }}
+{{- else }}
+{{- default "default" .Values.serviceAccount.name }}
+{{- end }}
+{{- end }}
