@@ -39,7 +39,7 @@ func executeCronJob(db *pg.DB) {
 
 func main() {
 	// Initialize environment
-	err := godotenv.Load(".env")
+	err := godotenv.Load(getenv("ENV_FILE", "/vault/secrets/env"))
 	if err != nil {
 		log.Fatal("Error loading .env file")
 	}
@@ -64,4 +64,12 @@ func main() {
 	go executeCronJob(db)
 
 	log.Print("Started running cron job!")
+}
+
+func getenv(key, fallback string) string {
+	value := os.Getenv(key)
+	if len(value) == 0 {
+		return fallback
+	}
+	return value
 }
