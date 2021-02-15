@@ -18,6 +18,7 @@ spec:
       labels:
         {{- include "blackping.selectorLabels" . | nindent 8 }}
     spec:
+      serviceAccountName: {{ include "blackping.serviceAccountName" . }}
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
