@@ -103,7 +103,7 @@ func executeCronJob(db *pg.DB) {
 	period, err := strconv.ParseUint(os.Getenv("PERIOD"), 10, 64)
 	if err != nil {
 		// Set to default period if couldn't get value from dotenv
-		period = 5
+		period = 600
 	}
 	gocron.Every(period).Second().Do(ping, db)
 	<-gocron.Start()
