@@ -20,5 +20,7 @@ jobs:
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@master
+        with:
+          charts_dir: _charts
         env:
           CR_TOKEN: '${{ secrets.CR_TOKEN }}'
