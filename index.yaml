@@ -3,6 +3,15 @@ entries:
   blackping:
   - apiVersion: v1
     appVersion: "1.0"
+    created: "2021-02-15T14:24:25.081939201Z"
+    description: Applications
+    digest: 5c2c1ea7927c0a86d1c9e732ce76b6c0df223592636bf9fd53833a1a01cfcb2e
+    name: blackping
+    urls:
+    - https://github.com/locmai/blackping/releases/download/blackping-0.0.5/blackping-0.0.5.tgz
+    version: 0.0.5
+  - apiVersion: v1
+    appVersion: "1.0"
     created: "2021-02-15T11:53:59.658815037Z"
     description: Applications
     digest: bb4786194f58060114792802f94701d694d22d5f6fbf69551c49f807f8d263ba
