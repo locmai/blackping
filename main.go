@@ -73,6 +73,7 @@ func executeCronJob(db *pg.DB) {
 func main() {
 	// Initialize environment
 	err := godotenv.Load(getenv("ENV_FILE", "/vault/secrets/env"))
+
 	if err != nil {
 		log.Fatal("Error loading .env file")
 	}
